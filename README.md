@@ -6,8 +6,8 @@ The GWAS used in this study was conducted in a population of patients with calci
 INSTALLATION :
 To run it, you need :
 
-Snakemake Install Snakemake
+Snakemake [Install Snakemake](https://snakemake.readthedocs.io/en/stable/getting_started/installation.html)
 
-Plink Install Plink
+Plink [Install Plink](https://www.cog-genomics.org/plink/2.0/)
 
-R Install R
+R [Install R](https://cran.r-project.org/)
