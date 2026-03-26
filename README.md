@@ -14,8 +14,9 @@ R:  [Install R](https://cran.r-project.org/)
 And the following R packages : 
 - GRAPPLEofNEW To install this package, you need to build it :
 ```bash
-R CMD build your/path/to/folder_of/GRAPPLEofNEW```
-Then ```install.packages("your/path/to/GRAPPLEofNEW_0.2.2.tar.gz")```
+R CMD build your/path/to/folder_of/GRAPPLEofNEW
+```
+Then install.packages("your/path/to/GRAPPLEofNEW_0.2.2.tar.gz")
 
 - ieugwasr
 - dplyr
