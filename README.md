@@ -13,11 +13,10 @@ Plink: [Install Plink](https://www.cog-genomics.org/plink/2.0/)
 R:  [Install R](https://cran.r-project.org/)
 And the following R packages : 
 - GRAPPLEofNEW
-  ###### To install this package, you need to build it
+  ###### To install this package, you need to build the library before installing it on R : 
 ```bash
 R CMD build your/path/to/folder_of/GRAPPLEofNEW
 ```
-  ###### Then install it on R like the others
 - ieugwasr
 - dplyr
 - TwoSampleMR
