@@ -1,0 +1,54 @@
+
+###SNAKEFILE 
+
+
+
+
+## THE CONFIGURATION FILE 
+
+configfile : "config_snakemake.yaml"
+
+## List of GWAS files for exposure, outcome and covariates (if multivariate) respectively
+
+# Exposures
+Risk_names = [file for file in os.listdir(config['exp_path'])]
+
+# Outcomes
+outcome_factor = [file for file in os.listdir(config['out_path'])]
+
+
+# Covariates
+cov_factor = [file for file in os.listdir(config['exp_cov_path'])]
+
+## Create required folders for results if not already created
+## LAUNCH IN DRY RUN TO CREATE FOLDERS (doesn't work when running for a job)
+
+
+
+for file in outcome_factor :
+	path_1 = config['res_path'] + file
+	if os.path.isdir(path_1) == False :
+		os.mkdir(path_1)
+		print(path_1) 
+		for exp in Risk_names :
+			path_2 =  config['res_path'] + file + "/" + exp
+			if os.path.isdir(path_2) == False :    
+				os.mkdir(path_2)
+				print(path_2)
+rule all :
+	input :
+		expand("{res_path}{out_factor}/{risk_factor}/UNIV_results", risk_factor = Risk_names, res_path = config['res_path'], out_factor = outcome_factor)
+
+### Perform SNP selection and MR analysis
+
+rule MR_UNIV :
+        input :
+                selection = config['sel_path'] + "{risk_factor}",
+                exposure = config['exp_path'] + "{risk_factor}",
+		outcome =  config['out_path'] + "{out_factor}",
+		sel_covariates = expand(config['sel_cov_path'] + "{cov_factor}", cov_factor = cov_factor),  
+		exp_covariates = expand(config['exp_cov_path'] + "{cov_factor}", cov_factor = cov_factor)
+        output :
+                "{res_path}/{out_factor}/{risk_factor}/UNIV_results"
+        shell :
+                "Rscript MR_UNIV {input.selection} {input.exposure} {input.outcome} {wildcards.risk_factor} {wildcards.res_path}/{wildcards.out_factor}/ {input.sel_covariates} {input.exp_covariates}"

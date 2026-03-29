@@ -1,0 +1,59 @@
+
+#p-thresold for GRAPPLE analysis
+GRAPPLE_P_thresh <- 5e-4
+
+#Stringent p-threshold for the required MR-analysis (which require a diffrent p-threshold than GRAPPLE) 
+MR_P_thresh <- 5e-8
+
+
+
+## Sensitivity analysis 
+
+# Name of the confounding factor for sensitivity analysis, to put in the result file
+name_confounding <- "L_HDL_C"
+
+# Remove SNPs from a potential confounding factor from the main analysis for sensitivity analysis ? 
+confounding <- T
+
+# Pathway for the confounding factor 
+confound_1 <- "/home/dessennes-e/scratch/exp_cov/met-d-L_HDL_C"
+
+# p-threshold to remove SNPs associated with the outcome, for sensitivity analysis  
+p_thresh_assoc <- 5e-6
+
+
+## Clumping 
+# Reference file for clumping 
+plink_ref <- "/home/dessennes-e/scratch/Donnees_et_grand_fichiers/EUR"
+
+#Reference pathway for plink for R 
+plink_bin <- genetics.binaRies::get_plink_binary()
+
+
+### MULTIVARIATE ANALYSIS 
+
+#Does we have to make multivariate MR
+make_MULTI <- TRUE
+
+#Number of covariates in the multivariate model
+n_cov <- 4
+
+# vector to identify which covariate you took in multivariate, and will be displayed in the results and results file name, as "MULTI_xxxxx_name_conf"
+
+name_covariate <- c("XS_VLDL_C", "L_HDL_C", "L_LDL_C", "PUFA") 
+
+
+
+## Just if you want to try MVMR-horse, a multivariate method 
+# The method take a lot of time to process, consider ~ 1h per exposure
+# Results are stored in a different file than all other results
+# Don't forget to install the application JAGS and the library(R2jags) 
+# And don't move the source code from the folder git
+
+
+
+# Process the MVMR-Horse method in the multivariate setting
+horse_try <- T
+
+
+

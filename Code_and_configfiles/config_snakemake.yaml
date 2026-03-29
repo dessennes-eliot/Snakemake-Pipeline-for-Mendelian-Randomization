@@ -1,0 +1,76 @@
+##### FOR SNAKEMAKE 
+
+
+
+###GWAS REQUIREMENTS 
+## The GWAS file have to be in a table format
+## There must be the cols :
+#		SNP (for rsid number, or chrom_pos_ref_alt, or like you want,  but it must correspond to the id_number in the reference file, for clumping)
+#		effect_allele (the allele were you consider your beta)
+#		other_allele (the other allele)
+#		beta (effect size estimation of the SNPs on your exposure)
+#		se (standard error of the effect size estimation)
+#		pval (pvalue of the effect size estimation)
+## non mandatory cols :
+#		eaf (effect allele frequency. Actually useful for the harmonisation, to not drop all palyndromic SNPs)
+
+
+
+###UNIVARIATE ANALYSIS
+
+#The pathway for the selection set folder of exposure GWAS
+#It will take the pvalue of this set and assign it to the corresponding rsid of the true exposure set
+#If there is not a selection set (ie : pvalue and beta estimation are taken from the same dataset), just put the same pathway as the true exposure set
+#You can put a list of exposure set in this folder. If the same list is in the true exposure set, it will iteratively perform MR on each exposure
+## THE NAME OF THE SELECTION EXPOSURE FILE HAVE TO BE THE SAME AS THE CORRESPONDING TRUE EXPOSURE FILE (were beta and se are taken from)
+
+
+sel_path : "/home/dessennes-e/scratch/NOUVEAU_EXPOSURE/"
+
+
+#The pathway for the true exposure set folder, were beta estimation, se and allele frequency are taken from
+#You can put a list of exposure in this folder
+
+exp_path : "/home/dessennes-e/scratch/NOUVEAU_EXPOSURE/"
+
+
+#The pathway for the outcome set folder
+#You can put a list of outcome in this folder 
+
+out_path : "/home/dessennes-e/scratch/dir_outcome/"
+
+
+#The pathway indicating were results have to be stored
+
+res_path : "/home/dessennes-e/scratch/Scripts_MR/Mendelian_randomization_pipeline/FINNISH/"
+
+
+
+
+
+### MULTIVARIATE ANALYSIS
+##If you want to perform both Multivariate analysis and univariate analysis
+
+#Pathway for the selection covariates folder of the multivariate analysis
+#If there is not a selection set (ie : pvalue and beta estimation are taken from the same dataset), just put the same pathway as the true covariates
+#You can put a list of covariates in this folder. If the same list i sin the true covariates set, it will take all these covariates in the multivariate analaysis + the exposure 
+## THE NAME OF THE SELECTION COVARIATE FILE HAVE TO BE THE SAME AS THE CORRESPONDING TRUE COVARIATE FILE (were beta and se are taken from)
+
+sel_cov_path : "/home/dessennes-e/scratch/exp_cov/"
+
+
+#Pathway for the true covariates folder
+#You can put a list of covariates in this folder
+
+exp_cov_path : "/home/dessennes-e/scratch/exp_cov/"
+
+
+
+
+
+
+
+
+
+
+
