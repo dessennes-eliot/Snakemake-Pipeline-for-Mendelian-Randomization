@@ -1,11 +1,5 @@
 
-#################################################################### UNIV RESULTATS 
-
-
-Standard error (se) computed with : se <- abs(beta/qnorm(pvalue/2))
-
-Odd ratio (OR) computed with : OR <- exp(beta) 
-
+#### Interpretation for each result  
 
 
 name : name of the exposure     
