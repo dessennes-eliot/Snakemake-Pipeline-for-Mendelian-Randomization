@@ -12,12 +12,12 @@ Plink: [Install Plink](https://www.cog-genomics.org/plink/2.0/)
 
 R:  [Install R](https://cran.r-project.org/)
 And the following R packages : 
-- GRAPPLEofNEW To install this package, you need to build it :
+- GRAPPLEofNEW
+  To install this package, you need to build it :
 ```bash
 R CMD build your/path/to/folder_of/GRAPPLEofNEW
 ```
-Then install it on R
-
+  Then install it on R like the others
 - ieugwasr
 - dplyr
 - TwoSampleMR
@@ -50,8 +50,8 @@ then just run the code with :
 `snakemake --snakefile snakefile --use-conda -c 1 -j 1` 
 
 
-### MVMR Horse is also implemented for multivariate analysis 
-#### Before using it, you need to install the application JAGS, and the library(R2jags) in R
-## The method take a lot of time to run, so you have to accept to run it in the R config file
-## Results are stored in another file than the rest of the methods, and no sensitivity analysis is made
+# MVMR Horse is also implemented for multivariate analysis 
+# Before using it, you need to install the application JAGS, and the library(R2jags) in R
+# The method take a lot of time to run, so you have to accept to run it in the R config file
+# Results are stored in another file than the rest of the methods, and no sensitivity analysis is made
 
